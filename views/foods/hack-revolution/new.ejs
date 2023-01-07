@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+<script>
+  
+  if('geolocation' in navigator ){
+    console.log("YYYYYYYY")
+    navigator.geolocation.getCurrentPosition(position=>{
+        console.log(position.coords.latitude); 
+        console.log(position.coords.longitude); 
+        
+    document.getElementById('location').value=`${position.coords.latitude},${position.coords.longitude}`;
+     
+  })
+}
+else{
+    console.log("NNNNNNNN")
+}
+</script>
+    <form class="need   s-validation" action="/foods" novalidate method="post" >
+          <div>  
+            <label  for="name">Name</label>
+            <input  type="text"  id="name" name="food[name]" required>
+          </div>
+          <div>  
+            <label  for="veg">Veg or Non Veg</label>
+            <select name="food[veg]" id="veg">
+                  <option value="Both">Both</option>
+                  <option value="veg">veg</option>
+                  <option value="non-veg">non-veg</option>
+            </select>
+          </div>
+          <div>  
+            <label  for="description">Description</label>
+            <input  type="text"  id="description" name="food[description]" required>
+          </div>
+          <div>  
+            <label  for="location">location</label>
+            <input  type="text"  id="location" name="food[location]" required>
+          </div>
+          <div>  
+            <label  for="distance">distance</label>
+            <input  type="text"  id="distance" name="food[distance]" required>
+          </div>
+          <div>  
+            <label  for="useByDate">useByDate</label>
+            <input  type="text"  id="useByDate" name="food[useByDate]" required>
+          </div>
+          <div>  
+            <label  for="image">image</label>
+            <input  type="text"  id="image" name="food[image]" required>
+          </div>
+
+
+          <!-- <iframe
+  width="600"
+  height="450"
+  style="border:0"
+  loading="lazy"
+  allowfullscreen
+  referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.google.com/maps/embed/v1/place?key=API_KEY
+    &q=Space+Needle,Seattle+WA">
+</iframe> -->
+
+          
+
+        <button class="btn btn-success">Add Food</button>
+        </div>
+    </form>
+
+
+</body>
+</html>
